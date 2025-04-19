@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELEVATE | Premium OnlyFans Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6d28d9',
+                        neon: '#e879f9',
+                        dark: '#0f172a',
+                        darker: '#020617',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #e879f9 0%, #6d28d9 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-border {
+            position: relative;
+            border-radius: 0.5rem;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 0.5rem;
+            padding: 2px;
+            background: linear-gradient(45deg, #e879f9, #6d28d9);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(232, 121, 249, 0.5);
+        }
+        
+        .hover-grow {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-grow:hover {
+            transform: scale(1.03);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #e879f9 0%, #6d28d9 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #e879f9;
+        }
+        
+        .stats-card {
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.7);
+        }
+        
+        .testimonial-card {
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(232, 121, 249, 0.3);
+        }
+        
+        .creator-card {
+            transition: all 0.3s ease;
+        }
+        
+        .creator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(232, 121, 249, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-darker text-slate-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-darker/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold gradient-text">ELEVATE</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#services" class="nav-link text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Services</a>
+                        <a href="#results" class="nav-link text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Results</a>
+                        <a href="#testimonials" class="nav-link text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Testimonials</a>
+                        <a href="#blog" class="nav-link text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Insights</a>
+                        <a href="#contact" class="nav-link text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Contact</a>
+                        <a href="#apply" class="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">Apply Now</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-700 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darker border-t border-slate-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Services</a>
+                <a href="#results" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Results</a>
+                <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Testimonials</a>
+                <a href="#blog" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Insights</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Contact</a>
+                <a href="#apply" class="block w-full text-center bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-2 rounded-full font-medium mt-2">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                    <span class="gradient-text">Elevate</span> Your OnlyFans to Elite Status
+                </h1>
+                <p class="text-xl text-slate-300 mb-8">
+                    We transform talented creators into top 0.1% earners with our exclusive growth strategies, content optimization, and premium management services.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#apply" class="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 text-center">
+                        Apply For Management <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#services" class="border border-slate-600 hover:border-pink-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 text-center">
+                        Explore Services
+                    </a>
+                </div>
+                <div class="mt-8 flex items-center space-x-4">
+                    <div class="flex -space-x-2">
+                        <img class="w-10 h-10 rounded-full border-2 border-slate-800" src="https://randomuser.me/api/portraits/women/1.jpg" alt="">
+                        <img class="w-10 h-10 rounded-full border-2 border-slate-800" src="https://randomuser.me/api/portraits/women/2.jpg" alt="">
+                        <img class="w-10 h-10 rounded-full border-2 border-slate-800" src="https://randomuser.me/api/portraits/women/3.jpg" alt="">
+                    </div>
+                    <div>
+                        <p class="text-sm text-slate-300">Trusted by <span class="font-bold text-white">250+</span> elite creators</p>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                            <span class="text-sm ml-1">5.0 (87 reviews)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="gradient-border p-1 rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Creator success" class="rounded-xl w-full h-auto object-cover">
+                </div>
+                <div class="absolute -bottom-6 -left-6 bg-gradient-to-r from-purple-600 to-pink-500 p-4 rounded-xl shadow-xl w-32 h-32 flex flex-col items-center justify-center">
+                    <span class="text-3xl font-bold">97%</span>
+                    <span class="text-xs text-center">Success Rate</span>
+                </div>
+                <div class="absolute -top-6 -right-6 bg-gradient-to-r from-purple-600 to-pink-500 p-4 rounded-xl shadow-xl w-32 h-32 flex flex-col items-center justify-center">
+                    <span class="text-3xl font-bold">5x</span>
+                    <span class="text-xs text-center">Average Earnings Increase</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="py-12 bg-slate-900/50 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-slate-400 mb-8">Trusted by creators featured in</p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Forbes_logo.svg/2560px-Forbes_logo.svg.png" alt="Forbes" class="h-8 opacity-70 hover:opacity-100 transition-opacity mx-auto">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Playboy_enterprises_logo.svg/2560px-Playboy_enterprises_logo.svg.png" alt="Playboy" class="h-8 opacity-70 hover:opacity-100 transition-opacity mx-auto">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Vice_Media_logo.svg/2560px-Vice_Media_logo.svg.png" alt="Vice" class="h-8 opacity-70 hover:opacity-100 transition-opacity mx-auto">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/BuzzFeed_logo.svg/1280px-BuzzFeed_logo.svg.png" alt="Buzzfeed" class="h-8 opacity-70 hover:opacity-100 transition-opacity mx-auto">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Complex_logo.svg/1200px-Complex_logo.svg.png" alt="Complex" class="h-8 opacity-70 hover:opacity-100 transition-opacity mx-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-sm font-semibold tracking-wider uppercase text-pink-500">Our Services</span>
+            <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-4">Premium <span class="gradient-text">Management</span> Solutions</h2>
+            <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                We offer comprehensive services tailored to maximize your earnings and minimize your workload.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div class="gradient-border p-1 rounded-xl hover-grow">
+                <div class="bg-slate-900 rounded-xl p-8 h-full">
+                    <div class="w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-500 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Growth Strategy</h3>
+                    <p class="text-slate-300 mb-6">
+                        Customized marketing plans to exponentially grow your subscriber base using proven conversion tactics and audience targeting.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-pink-500 mr-3"></i>
+                            <span>Viral content strategies</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-pink-500 mr-3"></i>
+                            <span>Paid advertising management</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-pink-500 mr-3"></i>
+                            <span>Cross-platform promotion</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="gradient-border p-1 rounded-xl hover-grow">
+                <div class="bg-slate-900 rounded-xl p-8 h-full">
+                    <div class="w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-500 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-camera-retro text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Content Production</h3>
+                    <p class="text-slate-300 mb-6">
+                        Professional content creation including photography, videography, and editing to maintain a premium brand aesthetic.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-pink-500 mr-3"></i>
+                            <span>High-end photo shoots</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-pink-500 mr-3"></i>
+                            <span>4K video production</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-pink-500 mr-3"></i>
+                            <span>Professional editing</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="gradient-border p-1 rounded-xl hover-grow">
+                <div class="bg-slate-900 rounded-xl p-8 h-full">
+                    <div class="w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-500 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-wallet text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Monetization</h3>
+                    <p class="text-slate-300 mb-6">
+                        Advanced monetization strategies to maximize your revenue from subscriptions, PPV, tips, and custom content.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-pink-500 mr-3"></i>
+                            <span>Pricing optimization</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-pink-500 mr-3"></i>
+                            <span>Upsell strategies</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-pink-500 mr-3"></i>
+                            <span>Fan retention systems</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-12 text-center">
+            <a href="#contact" class="inline-flex items-center text-pink-500 font-medium hover:text-pink-400">
+                View all services <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="py-20 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-sm font-semibold tracking-wider uppercase text-pink-500">Our Results</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-4">Proven <span class="gradient-text">Success</span> Metrics</h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    We deliver measurable results that transform creators' careers and income potential.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="stats-card border border-slate-800 rounded-xl p-8 text-center hover-grow">
+                    <div class="text-5xl font-bold gradient-text mb-2">3-5x</div>
+                    <p class="text-slate-300">Average earnings increase</p>
+                </div>
+                <div class="stats-card border border-slate-800 rounded-xl p-8 text-center hover-grow">
+                    <div class="text-5xl font-bold gradient-text mb-2">92%</div>
+                    <p class="text-slate-300">Client retention rate</p>
+                </div>
+                <div class="stats-card border border-slate-800 rounded-xl p-8 text-center hover-grow">
+                    <div class="text-5xl font-bold gradient-text mb-2">24/7</div>
+                    <p class="text-slate-300">Dedicated support</p>
+                </div>
+                <div class="stats-card border border-slate-800 rounded-xl p-8 text-center hover-grow">
+                    <div class="text-5xl font-bold gradient-text mb-2">30+</div>
+                    <p class="text-slate-300">Top 0.1% creators</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="gradient-border p-1 rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1608889825101-1d329f9855f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Creator earnings" class="rounded-xl w-full h-auto object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-gradient-to-r from-purple-600 to-pink-500 p-4 rounded-xl shadow-xl w-40 h-40 flex flex-col items-center justify-center">
+                        <span class="text-4xl font-bold">$250k+</span>
+                        <span class="text-sm text-center">Highest earning client</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">From Zero to <span class="gradient-text">Six Figures</span></h3>
+                    <p class="text-lg text-slate-300 mb-6">
+                        Our clients consistently achieve financial freedom through our tailored strategies. We've helped creators go from complete beginners to earning $10,000+ per month in as little as 90 days.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-lg font-medium">Customized growth plans for each creator</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-lg font-medium">Data-driven content optimization</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
+                                    <i class="fas fa-check text-white text-sm"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-lg font-medium">Premium brand positioning strategies</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#apply" class="mt-8 inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white px-8 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
+                        Get Started <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-sm font-semibold tracking-wider uppercase text-pink-500">Success Stories</span>
+            <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-4">Creator <span class="gradient-text">Testimonials</span></h2>
+            <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                Hear from creators who transformed their earnings with our premium management.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card border border-slate-800 rounded-xl p-8">
+                <div class="flex items-center mb-6">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sophia" class="w-14 h-14 rounded-full border-2 border-pink-500">
+                    <div class="ml-4">
+                        <h4 class="font-bold">Sophia</h4>
+                        <p class="text-sm text-slate-400">Top 0.5% Creator</p>
+                    </div>
+                </div>
+                <p class="text-slate-300 mb-6">
+                    "ELEVATE took me from $3k/month to over $45k/month in just 6 months. Their growth strategies are unmatched in the industry."
+                </p>
+                <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card border border-slate-800 rounded-xl p-8">
+                <div class="flex items-center mb-6">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ava" class="w-14 h-14 rounded-full border-2 border-pink-500">
+                    <div class="ml-4">
+                        <h4 class="font-bold">Ava</h4>
+                        <p class="text-sm text-slate-400">Top 0.2% Creator</p>
+                    </div>
+                </div>
+                <p class="text-slate-300 mb-6">
+                    "The content strategy team helped me triple my engagement and double my subscription price while keeping retention high."
+                </p>
+                <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card border border-slate-800 rounded-xl p-8">
+                <div class="flex items-center mb-6">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Mia" class="w-14 h-14 rounded-full border-2 border-pink-500">
+                    <div class="ml-4">
+                        <h4 class="font-bold">Mia</h4>
+                        <p class="text-sm text-slate-400">Top 0.1% Creator</p>
+                    </div>
+                </div>
+                <p class="text-slate-300 mb-6">
+                    "I went from 200 fans to over 12,000 in 4 months with their viral growth system. The monetization strategies are game-changing."
+                </p>
+                <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Creators -->
+    <section class="py-20 bg-gradient-to-b from-slate-900/50 to-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-sm font-semibold tracking-wider uppercase text-pink-500">Our Creators</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-4">Featured <span class="gradient-text">Elite</span> Talent</h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    We work exclusively with high-potential creators committed to building premium brands.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="creator-card bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Creator" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold">Emma</h4>
+                        <p class="text-sm text-slate-400 mb-2">Fitness & Lifestyle</p>
+                        <div class="flex items-center text-xs">
+                            <span class="bg-pink-500/20 text-pink-500 px-2 py-1 rounded">Top 0.3%</span>
+                            <span class="ml-auto">$85k/mo</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="creator-card bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Creator" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold">Olivia</h4>
+                        <p class="text-sm text-slate-400 mb-2">Luxury Lifestyle</p>
+                        <div class="flex items-center text-xs">
+                            <span class="bg-pink-500/20 text-pink-500 px-2 py-1 rounded">Top 0.1%</span>
+                            <span class="ml-auto">$120k/mo</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="creator-card bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Creator" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold">Charlotte</h4>
+                        <p class="text-sm text-slate-400 mb-2">Cosplay & Gaming</p>
+                        <div class="flex items-center text-xs">
+                            <span class="bg-pink-500/20 text-pink-500 px-2 py-1 rounded">Top 0.5%</span>
+                            <span class="ml-auto">$65k/mo</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="creator-card bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
+                    <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Creator" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold">Amelia</h4>
+                        <p class="text-sm text-slate-400 mb-2">Fashion & Beauty</p>
+                        <div class="flex items-center text-xs">
+                            <span class="bg-pink-500/20 text-pink-500 px-2 py-1 rounded">Top 0.2%</span>
+                            <span class="ml-auto">$95k/mo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-slate-300 mb-6">Ready to join our elite roster of creators?</p>
+                <a href="#apply" class="inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
+                    Apply Now <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog/Insights -->
+    <section id="blog" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-sm font-semibold tracking-wider uppercase text-pink-500">Industry Insights</span>
+            <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-4">Growth <span class="gradient-text">Strategies</span></h2>
+            <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                Learn the latest tactics and trends from our team of experts.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Article 1 -->
+            <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover-grow">
+                <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Blog post" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-semibold tracking-wider uppercase text-pink-500">Growth</span>
+                    <h3 class="text-xl font-bold mt-2 mb-3">5 Viral Content Strategies That Convert</h3>
+                    <p class="text-slate-300 mb-4">
+                        Discover the content formats that consistently drive the highest conversions and subscriber growth.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-pink-500 font-medium hover:text-pink-400 text-sm">
+                        Read More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Article 2 -->
+            <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover-grow">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Blog post" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-semibold tracking-wider uppercase text-pink-500">Monetization</span>
+                    <h3 class="text-xl font-bold mt-2 mb-3">Premium Pricing Strategies for Top Earners</h3>
+                    <p class="text-slate-300 mb-4">
+                        How to position yourself as a premium creator and command higher prices without losing subscribers.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-pink-500 font-medium hover:text-pink-400 text-sm">
+                        Read More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Article 3 -->
+            <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover-grow">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" alt="Blog post" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-semibold tracking-wider uppercase text-pink-500">Analytics</span>
+                    <h3 class="text-xl font-bold mt-2 mb-3">Data-Driven Content Optimization</h3>
+                    <p class="text-slate-300 mb-4">
+                        Learn how to analyze your performance metrics to double down on what works and eliminate what doesn't.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-pink-500 font-medium hover:text-pink-400 text-sm">
+                        Read More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-12 text-center">
+            <a href="#" class="inline-flex items-center border border-slate-700 hover:border-pink-500 text-white px-6 py-3 rounded-full font-medium transition-all duration-300">
+                View All Articles <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="apply" class="py-20 bg-gradient-to-b from-darker to-slate-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="gradient-border p-1 rounded-2xl">
+                <div class="bg-slate-900 rounded-2xl p-8 md:p-12">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-4">Apply For <span class="gradient-text">Management</span></h2>
+                        <p class="text-xl text-slate-300">
+                            Complete this application to be considered for our exclusive management program.
+                        </p>
+                    </div>
+                    
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-300 mb-1">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="username" class="block text-sm font-medium text-slate-300 mb-1">OnlyFans Username</label>
+                                <input type="text" id="username" name="username" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
+                            </div>
+                            <div>
+                                <label for="earnings" class="block text-sm font-medium text-slate-300 mb-1">Current Monthly Earnings ($)</label>
+                                <input type="number" id="earnings" name="earnings" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="social" class="block text-sm font-medium text-slate-300 mb-1">Social Media Links</label>
+                            <input type="text" id="social" name="social" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500" placeholder="Instagram, Twitter, TikTok, etc.">
+                        </div>
+                        
+                        <div>
+                            <label for="goals" class="block text-sm font-medium text-slate-300 mb-1">Your Goals</label>
+                            <select id="goals" name="goals" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white">
+                                <option value="">Select your primary goal</option>
+                                <option value="growth">Subscriber Growth</option>
+                                <option value="earnings">Increase Earnings</option>
+                                <option value="brand">Build Premium Brand</option>
+                                <option value="time">Save Time</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-300 mb-1">Tell us about yourself and why you'd be a good fit</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500"></textarea>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input id="terms" name="terms" type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-slate-700 rounded bg-slate-800">
+                            <label for="terms" class="ml-2 block text-sm text-slate-300">
+                                I agree to the <a href="#" class="text-pink-500 hover:text-pink-400">Terms of Service</a> and <a href="#" class="text-pink-500 hover:text-pink-400">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
+                                Submit Application <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Get In <span class="gradient-text">Touch</span></h2>
+                <p class="text-xl text-slate-300 mb-8">
+                    Have questions about our services? Contact our team directly for a confidential consultation.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold">Email</h4>
+                            <p class="text-slate-300">contact@elevateagency.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
+                                <i class="fas fa-phone-alt text-white"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold">Phone</h4>
+                            <p class="text-slate-300">+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
+                                <i class="fab fa-telegram text-white"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-bold">Telegram</h4>
+                            <p class="text-slate-300">@ElevateAgency</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12">
+                    <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-pink-500 transition-colors">
+                            <i class="fab fa-instagram text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-pink-500 transition-colors">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-pink-500 transition-colors">
+                            <i class="fab fa-tiktok text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-pink-500 transition-colors">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gradient-border p-1 rounded-2xl">
+                <div class="bg-slate-900 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="contact-name" class="block text-sm font-medium text-slate-300 mb-1">Name</label>
+                            <input type="text" id="contact-name" name="contact-name" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
+                        </div>
+                        
+                        <div>
+                            <label for="contact-email" class="block text-sm font-medium text-slate-300 mb-1">Email</label>
+                            <input type="email" id="contact-email" name="contact-email" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
+                        </div>
+                        
+                        <div>
+                            <label for="contact-subject" class="block text-sm font-medium text-slate-300 mb-1">Subject</label>
+                            <input type="text" id="contact-subject" name="contact-subject" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
+                        </div>
+                        
+                        <div>
+                            <label for="contact-message" class="block text-sm font-medium text-slate-300 mb-1">Message</label>
+                            <textarea id="contact-message" name="contact-message" rows="4" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500"></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white px-8 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darker border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <span class="text-2xl font-bold gradient-text">ELEVATE</span>
+                    <p class="text-slate-300 mt-4">
+                        Premium OnlyFans management for elite creators. We transform talent into top earners.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">Growth Strategy</a></li>
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">Content Production</a></li>
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">Monetization</a></li>
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">Account Management</a></li>
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">Brand Partnerships</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">About Us</a></li>
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">Success Stories</a></li>
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">Careers</a></li>
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">Press</a></li>
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">Privacy Policy</a></li>
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">Terms of Service</a></li>
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">Cookie Policy</a></li>
+                        <li><a href="#" class="text-slate-300 hover:text-pink-500">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-400 mb-4 md:mb-0">© 2023 ELEVATE Agency. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-pink-500">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-pink-500">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-pink-500">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-pink-500">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-purple-500/30 transition-all duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission handling (example)
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // In a real implementation, you would send the form data to your server
+                // Here we'll just show a success message
+                alert('Thank you for your submission! Our team will contact you shortly.');
+                this.reset();
+            });
+        });
+        
+        // Animate elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.fade-in, .hover-grow, .gradient-border');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
