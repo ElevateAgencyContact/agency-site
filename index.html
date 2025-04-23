@@ -33,26 +33,26 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap');
-        
+       
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #020617;
             color: #f8fafc;
             scroll-behavior: smooth;
         }
-        
+       
         .gradient-text {
             background: linear-gradient(90deg, #e879f9 0%, #6d28d9 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-        
+       
         .gradient-border {
             position: relative;
             border-radius: 0.5rem;
         }
-        
+       
         .gradient-border::before {
             content: '';
             position: absolute;
@@ -68,23 +68,23 @@
             mask-composite: exclude;
             pointer-events: none;
         }
-        
+       
         .glow {
             box-shadow: 0 0 15px rgba(232, 121, 249, 0.5);
         }
-        
+       
         .hover-grow {
             transition: transform 0.3s ease;
         }
-        
+       
         .hover-grow:hover {
             transform: scale(1.03);
         }
-        
+       
         .nav-link {
             position: relative;
         }
-        
+       
         .nav-link::after {
             content: '';
             position: absolute;
@@ -95,45 +95,45 @@
             background: linear-gradient(90deg, #e879f9 0%, #6d28d9 100%);
             transition: width 0.3s ease;
         }
-        
+       
         .nav-link:hover::after {
             width: 100%;
         }
-        
+       
         .fade-in {
             animation: fadeIn 1s ease-in;
         }
-        
+       
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        
+       
         input:focus, textarea:focus {
             outline: none;
             box-shadow: 0 0 0 2px #e879f9;
         }
-        
+       
         .stats-card {
             backdrop-filter: blur(10px);
             background: rgba(15, 23, 42, 0.7);
         }
-        
+       
         .testimonial-card {
             backdrop-filter: blur(10px);
             background: rgba(15, 23, 42, 0.7);
             transition: all 0.3s ease;
         }
-        
+       
         .testimonial-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 25px rgba(232, 121, 249, 0.3);
         }
-        
+       
         .creator-card {
             transition: all 0.3s ease;
         }
-        
+       
         .creator-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(232, 121, 249, 0.3);
@@ -166,7 +166,7 @@
                 </div>
             </div>
         </div>
-        
+       
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-darker border-t border-slate-800">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -233,19 +233,6 @@
         </div>
     </section>
 
-    <!-- Trust Badges -->
-    <section class="py-12 bg-slate-900/50 border-y border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-slate-400 mb-8">Trusted by creators featured in</p>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Forbes_logo.svg/2560px-Forbes_logo.svg.png" alt="Forbes" class="h-8 opacity-70 hover:opacity-100 transition-opacity mx-auto">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Playboy_enterprises_logo.svg/2560px-Playboy_enterprises_logo.svg.png" alt="Playboy" class="h-8 opacity-70 hover:opacity-100 transition-opacity mx-auto">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Vice_Media_logo.svg/2560px-Vice_Media_logo.svg.png" alt="Vice" class="h-8 opacity-70 hover:opacity-100 transition-opacity mx-auto">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/BuzzFeed_logo.svg/1280px-BuzzFeed_logo.svg.png" alt="Buzzfeed" class="h-8 opacity-70 hover:opacity-100 transition-opacity mx-auto">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Complex_logo.svg/1200px-Complex_logo.svg.png" alt="Complex" class="h-8 opacity-70 hover:opacity-100 transition-opacity mx-auto">
-            </div>
-        </div>
-    </section>
 
     <!-- Services Section -->
     <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -256,7 +243,7 @@
                 We offer comprehensive services tailored to maximize your earnings and minimize your workload.
             </p>
         </div>
-        
+       
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Service 1 -->
             <div class="gradient-border p-1 rounded-xl hover-grow">
@@ -284,7 +271,7 @@
                     </ul>
                 </div>
             </div>
-            
+           
             <!-- Service 2 -->
             <div class="gradient-border p-1 rounded-xl hover-grow">
                 <div class="bg-slate-900 rounded-xl p-8 h-full">
@@ -311,7 +298,7 @@
                     </ul>
                 </div>
             </div>
-            
+           
             <!-- Service 3 -->
             <div class="gradient-border p-1 rounded-xl hover-grow">
                 <div class="bg-slate-900 rounded-xl p-8 h-full">
@@ -339,7 +326,7 @@
                 </div>
             </div>
         </div>
-        
+       
         <div class="mt-12 text-center">
             <a href="#contact" class="inline-flex items-center text-pink-500 font-medium hover:text-pink-400">
                 View all services <i class="fas fa-arrow-right ml-2"></i>
@@ -357,7 +344,7 @@
                     We deliver measurable results that transform creators' careers and income potential.
                 </p>
             </div>
-            
+           
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div class="stats-card border border-slate-800 rounded-xl p-8 text-center hover-grow">
                     <div class="text-5xl font-bold gradient-text mb-2">3-5x</div>
@@ -376,7 +363,7 @@
                     <p class="text-slate-300">Top 0.1% creators</p>
                 </div>
             </div>
-            
+           
             <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="relative">
                     <div class="gradient-border p-1 rounded-xl">
@@ -441,7 +428,7 @@
                 Hear from creators who transformed their earnings with our premium management.
             </p>
         </div>
-        
+       
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Testimonial 1 -->
             <div class="testimonial-card border border-slate-800 rounded-xl p-8">
@@ -463,7 +450,7 @@
                     <i class="fas fa-star text-yellow-400 mr-1"></i>
                 </div>
             </div>
-            
+           
             <!-- Testimonial 2 -->
             <div class="testimonial-card border border-slate-800 rounded-xl p-8">
                 <div class="flex items-center mb-6">
@@ -484,7 +471,7 @@
                     <i class="fas fa-star text-yellow-400 mr-1"></i>
                 </div>
             </div>
-            
+           
             <!-- Testimonial 3 -->
             <div class="testimonial-card border border-slate-800 rounded-xl p-8">
                 <div class="flex items-center mb-6">
@@ -518,7 +505,7 @@
                     We work exclusively with high-potential creators committed to building premium brands.
                 </p>
             </div>
-            
+           
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="creator-card bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
                     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Creator" class="w-full h-48 object-cover">
@@ -531,7 +518,7 @@
                         </div>
                     </div>
                 </div>
-                
+               
                 <div class="creator-card bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Creator" class="w-full h-48 object-cover">
                     <div class="p-4">
@@ -543,7 +530,7 @@
                         </div>
                     </div>
                 </div>
-                
+               
                 <div class="creator-card bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
                     <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Creator" class="w-full h-48 object-cover">
                     <div class="p-4">
@@ -555,7 +542,7 @@
                         </div>
                     </div>
                 </div>
-                
+               
                 <div class="creator-card bg-slate-900 rounded-xl overflow-hidden border border-slate-800">
                     <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Creator" class="w-full h-48 object-cover">
                     <div class="p-4">
@@ -568,7 +555,7 @@
                     </div>
                 </div>
             </div>
-            
+           
             <div class="mt-12 text-center">
                 <p class="text-slate-300 mb-6">Ready to join our elite roster of creators?</p>
                 <a href="#apply" class="inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
@@ -587,7 +574,7 @@
                 Learn the latest tactics and trends from our team of experts.
             </p>
         </div>
-        
+       
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Article 1 -->
             <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover-grow">
@@ -603,7 +590,7 @@
                     </a>
                 </div>
             </div>
-            
+           
             <!-- Article 2 -->
             <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover-grow">
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Blog post" class="w-full h-48 object-cover">
@@ -618,7 +605,7 @@
                     </a>
                 </div>
             </div>
-            
+           
             <!-- Article 3 -->
             <div class="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 hover-grow">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" alt="Blog post" class="w-full h-48 object-cover">
@@ -634,7 +621,7 @@
                 </div>
             </div>
         </div>
-        
+       
         <div class="mt-12 text-center">
             <a href="#" class="inline-flex items-center border border-slate-700 hover:border-pink-500 text-white px-6 py-3 rounded-full font-medium transition-all duration-300">
                 View All Articles <i class="fas fa-arrow-right ml-2"></i>
@@ -643,78 +630,82 @@
     </section>
 
     <!-- Application Form -->
-    <section id="apply" class="py-20 bg-gradient-to-b from-darker to-slate-900">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="gradient-border p-1 rounded-2xl">
-                <div class="bg-slate-900 rounded-2xl p-8 md:p-12">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl md:text-5xl font-bold mb-4">Apply For <span class="gradient-text">Management</span></h2>
-                        <p class="text-xl text-slate-300">
-                            Complete this application to be considered for our exclusive management program.
-                        </p>
-                    </div>
-                    
-                    <form class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
-                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-slate-300 mb-1">Email</label>
-                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
-                            </div>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="username" class="block text-sm font-medium text-slate-300 mb-1">OnlyFans Username</label>
-                                <input type="text" id="username" name="username" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
-                            </div>
-                            <div>
-                                <label for="earnings" class="block text-sm font-medium text-slate-300 mb-1">Current Monthly Earnings ($)</label>
-                                <input type="number" id="earnings" name="earnings" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label for="social" class="block text-sm font-medium text-slate-300 mb-1">Social Media Links</label>
-                            <input type="text" id="social" name="social" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500" placeholder="Instagram, Twitter, TikTok, etc.">
-                        </div>
-                        
-                        <div>
-                            <label for="goals" class="block text-sm font-medium text-slate-300 mb-1">Your Goals</label>
-                            <select id="goals" name="goals" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white">
-                                <option value="">Select your primary goal</option>
-                                <option value="growth">Subscriber Growth</option>
-                                <option value="earnings">Increase Earnings</option>
-                                <option value="brand">Build Premium Brand</option>
-                                <option value="time">Save Time</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-slate-300 mb-1">Tell us about yourself and why you'd be a good fit</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500"></textarea>
-                        </div>
-                        
-                        <div class="flex items-center">
-                            <input id="terms" name="terms" type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-slate-700 rounded bg-slate-800">
-                            <label for="terms" class="ml-2 block text-sm text-slate-300">
-                                I agree to the <a href="#" class="text-pink-500 hover:text-pink-400">Terms of Service</a> and <a href="#" class="text-pink-500 hover:text-pink-400">Privacy Policy</a>
-                            </label>
-                        </div>
-                        
-                        <div>
-                            <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
-                                Submit Application <i class="fas fa-paper-plane ml-2"></i>
-                            </button>
-                        </div>
-                    </form>
+<section id="apply" class="py-20 bg-gradient-to-b from-darker to-slate-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="gradient-border p-1 rounded-2xl">
+            <div class="bg-slate-900 rounded-2xl p-8 md:p-12">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Apply For <span class="gradient-text">Management</span></h2>
+                    <p class="text-xl text-slate-300">
+                        Complete this application to be considered for our exclusive management program.
+                    </p>
                 </div>
+
+                <!-- Form Updated with Formspree -->
+                <form action="https://formspree.io/f/xeogqrod" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-300 mb-1">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="username" class="block text-sm font-medium text-slate-300 mb-1">OnlyFans Username</label>
+                            <input type="text" id="username" name="username" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
+                        </div>
+                        <div>
+                            <label for="earnings" class="block text-sm font-medium text-slate-300 mb-1">Current Monthly Earnings ($)</label>
+                            <input type="number" id="earnings" name="earnings" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="social" class="block text-sm font-medium text-slate-300 mb-1">Social Media Links</label>
+                        <input type="text" id="social" name="social" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500" placeholder="Instagram, Twitter, TikTok, etc.">
+                    </div>
+
+                    <div>
+                        <label for="goals" class="block text-sm font-medium text-slate-300 mb-1">Your Goals</label>
+                        <select id="goals" name="goals" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white">
+                            <option value="">Select your primary goal</option>
+                            <option value="growth">Subscriber Growth</option>
+                            <option value="earnings">Increase Earnings</option>
+                            <option value="brand">Build Premium Brand</option>
+                            <option value="time">Save Time</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-slate-300 mb-1">Tell us about yourself and why you'd be a good fit</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500"></textarea>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input id="terms" name="terms" type="checkbox" required class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-slate-700 rounded bg-slate-800">
+                        <label for="terms" class="ml-2 block text-sm text-slate-300">
+                            I agree to the <a href="#" class="text-pink-500 hover:text-pink-400">Terms of Service</a> and <a href="#" class="text-pink-500 hover:text-pink-400">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
+                            Submit Application <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+                <!-- End of Form -->
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
 
     <!-- Contact -->
     <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -724,45 +715,33 @@
                 <p class="text-xl text-slate-300 mb-8">
                     Have questions about our services? Contact our team directly for a confidential consultation.
                 </p>
-                
+               
                 <div class="space-y-6">
+<div class="flex items-start">
+    <div class="flex-shrink-0 mt-1">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
+            <i class="fas fa-envelope text-white"></i>
+        </div>
+    </div>
+    <div class="ml-4">
+        <h4 class="text-lg font-bold">Email</h4>
+        <p class="text-slate-300"><a href="mailto:elevateoutreach@outlook.com">elevateoutreach@outlook.com</a></p>
+    </div>
+</div>
+                   
                     <div class="flex items-start">
-                        <div class="flex-shrink-0 mt-1">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
-                                <i class="fas fa-envelope text-white"></i>
-                            </div>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-lg font-bold">Email</h4>
-                            <p class="text-slate-300">contact@elevateagency.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 mt-1">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
-                                <i class="fas fa-phone-alt text-white"></i>
-                            </div>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-lg font-bold">Phone</h4>
-                            <p class="text-slate-300">+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 mt-1">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
-                                <i class="fab fa-telegram text-white"></i>
-                            </div>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-lg font-bold">Telegram</h4>
-                            <p class="text-slate-300">@ElevateAgency</p>
-                        </div>
-                    </div>
+    <div class="flex-shrink-0 mt-1">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
+            <i class="fab fa-telegram text-white"></i>
+        </div>
+    </div>
+    <div class="ml-4">
+        <h4 class="text-lg font-bold">Telegram</h4>
+        <p class="text-slate-300"><a href="https://t.me/ElevateAgencyContact" target="_blank">@ElevateAgencyContact</a></p>
+    </div>
+</div>
                 </div>
-                
+               
                 <div class="mt-12">
                     <h4 class="text-lg font-bold mb-4">Follow Us</h4>
                     <div class="flex space-x-4">
@@ -781,7 +760,7 @@
                     </div>
                 </div>
             </div>
-            
+           
             <div class="gradient-border p-1 rounded-2xl">
                 <div class="bg-slate-900 rounded-2xl p-8">
                     <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
@@ -790,22 +769,22 @@
                             <label for="contact-name" class="block text-sm font-medium text-slate-300 mb-1">Name</label>
                             <input type="text" id="contact-name" name="contact-name" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
                         </div>
-                        
+                       
                         <div>
                             <label for="contact-email" class="block text-sm font-medium text-slate-300 mb-1">Email</label>
                             <input type="email" id="contact-email" name="contact-email" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
                         </div>
-                        
+                       
                         <div>
                             <label for="contact-subject" class="block text-sm font-medium text-slate-300 mb-1">Subject</label>
                             <input type="text" id="contact-subject" name="contact-subject" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500">
                         </div>
-                        
+                       
                         <div>
                             <label for="contact-message" class="block text-sm font-medium text-slate-300 mb-1">Message</label>
                             <textarea id="contact-message" name="contact-message" rows="4" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-white placeholder-slate-500"></textarea>
                         </div>
-                        
+                       
                         <div>
                             <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white px-8 py-3 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
                                 Send Message <i class="fas fa-paper-plane ml-2"></i>
@@ -827,7 +806,7 @@
                         Premium OnlyFans management for elite creators. We transform talent into top earners.
                     </p>
                 </div>
-                
+               
                 <div>
                     <h4 class="text-lg font-bold mb-4">Services</h4>
                     <ul class="space-y-2">
@@ -838,7 +817,7 @@
                         <li><a href="#" class="text-slate-300 hover:text-pink-500">Brand Partnerships</a></li>
                     </ul>
                 </div>
-                
+               
                 <div>
                     <h4 class="text-lg font-bold mb-4">Company</h4>
                     <ul class="space-y-2">
@@ -849,7 +828,7 @@
                         <li><a href="#" class="text-slate-300 hover:text-pink-500">Contact</a></li>
                     </ul>
                 </div>
-                
+               
                 <div>
                     <h4 class="text-lg font-bold mb-4">Legal</h4>
                     <ul class="space-y-2">
@@ -860,7 +839,7 @@
                     </ul>
                 </div>
             </div>
-            
+           
             <div class="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-slate-400 mb-4 md:mb-0">© 2023 ELEVATE Agency. All rights reserved.</p>
                 <div class="flex space-x-6">
@@ -890,14 +869,14 @@
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+       
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        
+       
         // Back to top button
         const backToTopButton = document.getElementById('back-to-top');
-        
+       
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
                 backToTopButton.classList.remove('opacity-0', 'invisible');
@@ -907,26 +886,26 @@
                 backToTopButton.classList.add('opacity-0', 'invisible');
             }
         });
-        
+       
         backToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        
+       
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
+               
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+               
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     // Close mobile menu if open
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
-                    
+                   
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
@@ -934,34 +913,34 @@
                 }
             });
         });
-        
+       
         // Form submission handling (example)
         const forms = document.querySelectorAll('form');
         forms.forEach(form => {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
+               
                 // In a real implementation, you would send the form data to your server
                 // Here we'll just show a success message
                 alert('Thank you for your submission! Our team will contact you shortly.');
                 this.reset();
             });
         });
-        
+       
         // Animate elements when they come into view
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.fade-in, .hover-grow, .gradient-border');
-            
+           
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
                 const screenPosition = window.innerHeight / 1.2;
-                
+               
                 if (elementPosition < screenPosition) {
                     element.classList.add('animate__animated', 'animate__fadeInUp');
                 }
             });
         };
-        
+       
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
     </script>
