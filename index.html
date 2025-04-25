@@ -950,33 +950,6 @@
             }, 3000);
         }
         
-        // Handle application form submission
-        if (applicationForm) {
-            applicationForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                try {
-                    const response = await fetch(this.action, {
-                        method: 'POST',
-                        body: new FormData(this),
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-                    
-                    if (response.ok) {
-                        showToast('Application submitted successfully! We\'ll be in touch soon.');
-                        this.reset();
-                    } else {
-                        const data = await response.json();
-                        showToast(data.error || 'Something went wrong. Please try again.');
-                    }
-                } catch (error) {
-                    showToast('Network error. Please check your connection and try again.');
-                }
-            });
-        }
-        
         // Handle contact form submission
         if (contactForm) {
             contactForm.addEventListener('submit', async function(e) {
